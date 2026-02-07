@@ -4,42 +4,130 @@
   border: none;
 }
 
-body {
-  background: #eceaea;
-  font-family: "Arial", sans-serif;
-  color: #333;
+.light {
+  --color: #eee;
+  --color-secondary: #464b74;
+  --color-focus: #ffffff;
+  --bg: #eceaea;
+  --bg-secondary: #6f74c9;
+  --bg-focus: #eeefff;
+  --bg-hover: #5a5fc9;
+  --border: #595c8e;
 }
 
-.resistor-divider input,
-.resistor-divider select,
-.resistor-divider button {
-  border: 2px solid #6f74c9;
+.dark {
+  --color: #eee;
+  --color-secondary: #818bd2;
+  --color-focus: #ffffff;
+  --bg: #1c1a1a;
+  --bg-secondary: #8186e5;
+  --bg-focus: #383a65;
+  --bg-hover: #5a5fc9;
+  --border: #595c8e;
+}
+
+body {
+  background: var(--bg);
+  font-family: Arial, Helvetica, sans-serif, Courier, monospace;
+  color: var(--color);
+  overflow-x: hidden;
+}
+body * {
+  border-radius: 3px;
+}
+
+.mode {
+  position: absolute;
+  font-size: small;
+  color: var(--color-secondary);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.resistor-divider-calculator {
+  overflow-y: hidden;
+}
+.resistor-divider-calculator .resistor-divider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.resistor-divider-calculator .resistor-divider .equal {
+  font-size: 2rem;
+  padding: 2rem;
+  align-self: center;
+  font-weight: lighter;
+  color: var(--color-secondary);
+}
+.resistor-divider-calculator .resistor-divider .inputs {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.resistor-divider-calculator .resistor-divider .inputs .input {
+  background: var(--bg);
+}
+.resistor-divider-calculator .resistor-divider .inputs input:focus,
+.resistor-divider-calculator .resistor-divider .inputs select:focus {
+  color: var(--color-secondary);
+  background: var(--bg-focus);
+}
+.resistor-divider-calculator .resistor-divider .inputs button:focus {
+  background: var(--bg-hover);
+}
+.resistor-divider-calculator .resistor-divider .inputs .resistors input {
+  max-width: 33%;
+}
+.resistor-divider-calculator .resistor-divider .inputs #resistor-1 {
+  order: 0;
+}
+.resistor-divider-calculator .resistor-divider .inputs #resistor-2 {
+  order: 1;
+}
+.resistor-divider-calculator .resistor-divider .inputs #units {
+  order: 2;
+}
+.resistor-divider-calculator .resistor-divider .inputs #voltage {
+  order: 3;
+}
+.resistor-divider-calculator .resistor-divider #calculate-button {
+  order: 4;
+}
+.resistor-divider-calculator .resistor-divider .outputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.resistor-divider-calculator .resistor-divider .outputs output {
+  padding: 1rem;
+  background: var(--bg-secondary);
+}
+.resistor-divider-calculator .resistor-divider input,
+.resistor-divider-calculator .resistor-divider select,
+.resistor-divider-calculator .resistor-divider button {
+  outline: none;
+  border-color: var(--border);
+  border: 3px solid var(--border);
   padding: 1rem 0.5rem 1rem 0.5rem;
   margin: 0.2rem;
   text-align: center;
-  color: #2a30a5;
+  color: var(--color-secondary);
 }
-.resistor-divider input:focus {
-  color: #121212;
-  background: #eeefff;
-}
-.resistor-divider select {
-  font-size: 0.75rem;
-}
-.resistor-divider button {
+.resistor-divider-calculator .resistor-divider button {
   display: flex;
   flex-direction: row;
   align-content: center;
   justify-content: center;
-  background: #6f74c9;
-  color: #fff;
+  background: var(--bg-secondary);
+  color: var(--color);
   cursor: pointer;
   transition: background 0.3s ease, border-color 0.3s ease;
   width: 7rem;
 }
-.resistor-divider button:hover {
-  background: #5a5fc9;
-  border-color: #5a5fc9;
+.resistor-divider-calculator .resistor-divider button:hover {
+  background: var(--bg-hover);
+  border-color: var(--bg-hover);
 }
 
 section {
@@ -51,5 +139,6 @@ section {
   box-sizing: border-box;
 }
 section h1 {
+  color: var(--color-secondary);
   margin-bottom: 0.5rem;
 }/*# sourceMappingURL=main.css.map */

@@ -6,23 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
 </head>
 
-<body>
-    <section class="resistor-divider">
+<body class="dark">
+    <button class="mode" onclick="toggleMode()">dark/light</button>
+    <section class="resistor-divider-calculator">
         <h1>Resistor Divider Calculator</h1>
-        <div class="text">
-            <input type="number" min="0" name="resistor-1" id="resistor-1" placeholder="R1">
-            <input type="number" min="0" name="resistor-2" id="resistor-2" placeholder="R2">
+        <div class="resistor-divider">
+            <div class="inputs">
+                <div class="resistors">
+                    <input class="input" type="number" min="0" name="resistor-1" id="resistor-1" placeholder="R1">
+                    <input class="input" type="number" min="0" name="resistor-2" id="resistor-2" placeholder="R2">
+                    <select class="input" name="units" id="units">
+                        <option class="input" value="1">Ω</option>
+                        <option class="input" value="1000">kΩ</option>
+                        <option class="input" value="1000000">MΩ</option>
+                    </select>
+                </div>
 
-            <select name="units" id="units">
-                <option value="ohms">Ω</option>
-                <option value="kilohms">kΩ</option>
-                <option value="megohms">MΩ</option>
-            </select>
+                <input class="input" type="number" min="0" name="voltage" id="voltage" placeholder="V">
+
+                
+
+                <button id="calculate-button" onclick="calculate()">Calculate</button>
+            </div>
+            <div class="equal">=</div>
+            <div class="outputs">
+                <output id="output-voltage"></output>
+            </div>
         </div>
-        <button>Calculate</button>
-        <output></output>
+
     </section>
 </body>
 
