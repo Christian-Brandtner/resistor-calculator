@@ -4,36 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resistor Divider Calculator</title>
+    <title>Voltage Divider Calculator</title>
     <link rel="stylesheet" href="main.css">
     <script src="main.js"></script>
 </head>
 
 <body class="dark">
-    <button class="mode" onclick="toggleMode()">dark/light</button>
-    <section class="resistor-divider-calculator">
-        <h1>Resistor Divider Calculator</h1>
-        <div class="resistor-divider">
-            <div class="inputs">
-                <div class="resistors">
-                    <input class="input" type="number" min="0" name="resistor-1" id="resistor-1" placeholder="R1">
-                    <input class="input" type="number" min="0" name="resistor-2" id="resistor-2" placeholder="R2">
-                    <select class="input" name="units" id="units">
-                        <option class="input" value="1">Ω</option>
-                        <option class="input" value="1000">kΩ</option>
-                        <option class="input" value="1000000">MΩ</option>
-                    </select>
-                </div>
+    <header>
 
-                <input class="input" type="number" min="0" name="voltage" id="voltage" placeholder="V">
+        <nav>
+            <div class="navbar">
+                <ul class="nav-list dropdown">
+                    <li class="nav-item">
+                        <a href="">Type</a>
 
-                
+                        <ul class="dropdown-list">
+                            <li class="dropdown-item"><a
+                                    onclick="changeCalculator('voltage-divider-calculator')">Voltage Divider</a>
+                            </li>
+                            <li class="dropdown-item"><a onclick="changeCalculator('sensor-divider-calculator')">Sensor
+                                    Divider</a>
+                            </li>
+                        </ul>
 
-                <button id="calculate-button" onclick="calculate()">Calculate</button>
+                    </li>
+
+                    <li class="mode nav-item"><a onclick="toggleMode()">Dark/Light</a></li>
+                </ul>
             </div>
-            <div class="equal">=</div>
-            <div class="outputs">
-                <output id="output-voltage"></output>
+        </nav>
+    </header>
+    <section>
+        <div class="calculator voltage-divider-calculator current">
+            <h1>Voltage Divider Calculator</h1>
+            <div class="voltage-divider">
+                <div class="inputs">
+                    <div class="resistors">
+                        <input class="input" type="number" min="0" name="resistor-1" id="resistor-1" placeholder="R1">
+                        <input class="input" type="number" min="0" name="resistor-2" id="resistor-2" placeholder="R2">
+                        <select class="input" name="units" id="units">
+                            <option class="input" value="1">Ω</option>
+                            <option class="input" value="1000">kΩ</option>
+                            <option class="input" value="1000000">MΩ</option>
+                        </select>
+                    </div>
+
+                    <input class="input" type="number" min="0" name="voltage" id="voltage" placeholder="V">
+
+
+                    <button id="calculate-button" onclick="calculate()">Calculate</button>
+                </div>
+                <div class="equal">=</div>
+                <div class="outputs">
+                    <output id="output-voltage"></output>
+                </div>
+            </div>
+        </div>
+        <div class="calculator sensor-divider-calculator">
+            <h1>Sensor Divider Calculator</h1>
+            <div class="voltage-divider">
+                <div class="inputs">
+                    <div class="resistors">
+                        <input class="input" type="number" min="0" name="resistor-1" id="resistor-1" placeholder="R1">
+                        <input class="input" type="number" min="0" name="resistor-2" id="resistor-2" placeholder="R2">
+                        <select class="input" name="units" id="units">
+                            <option class="input" value="1">Ω</option>
+                            <option class="input" value="1000">kΩ</option>
+                            <option class="input" value="1000000">MΩ</option>
+                        </select>
+                    </div>
+
+                    <input class="input" type="number" min="0" name="voltage" id="voltage" placeholder="V">
+
+
+                    <button id="calculate-button" onclick="calculate()">Calculate</button>
+                </div>
+                <div class="equal">=</div>
+                <div class="outputs">
+                    <output id="output-voltage"></output>
+                </div>
             </div>
         </div>
 

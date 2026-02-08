@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     border: none;
+
 }
 
 .light {
@@ -28,6 +29,90 @@
     --border: #595c8e;
 }
 
+.calculator {
+    display: none;
+}
+
+header {
+    .nav-list {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        background-color: var(--bg);
+
+
+        border-radius: 0.2rem;
+        margin: 0%;
+    }
+
+    .nav-item {
+        display: inline-block;
+        position: relative;
+        padding: 1rem;
+        margin-right: 2rem;
+
+        list-style: none;
+
+        a {
+            padding: 1rem;
+            height: 1rem;
+        }
+    }
+
+    .nav-item a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+
+        transform: scaleX(0);
+        height: 1px;
+        bottom: 0;
+        left: 0;
+
+        transform-origin: bottom right;
+        transition: transform 0.4s ease-out;
+    }
+
+    .nav-item:hover a::after {
+        padding: 0px 0px 5px 0px;
+        color: var(--bg-hover);
+        border-bottom: solid;
+        border-width: 3px;
+
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    .nav-item a {
+        text-decoration: none;
+        color: var(--color-secondary);
+        height: 100%;
+
+    }
+
+
+
+    .nav-item.logo {
+        padding: 0;
+    }
+
+    .dropdown {
+
+        .dropdown-list {
+            display: none;
+
+
+        }
+        
+    }
+    .dropdown:hover {
+        .dropdown-list {
+            display: block;
+        }
+    }
+}
+
 body {
     background: var(--bg);
     font-family: Arial, Helvetica, sans-serif, Courier, monospace;
@@ -44,14 +129,21 @@ body {
     font-size: small;
     color: var(--color-secondary);
     background: var(--bg);
-    border: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+
 }
 
-.resistor-divider-calculator {
-
+.voltage-divider-calculator {
+    display: flex;
+    flex-direction: column;
     overflow-y: hidden;
 
-    .resistor-divider {
+    h1 {
+        align-self: center;
+    }
+
+    .voltage-divider {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -70,19 +162,34 @@ body {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+
             .input {
                 background: var(--bg);
+
             }
-                        input:focus,
-                        select:focus {
-                            color: var(--color-secondary);
-                            background: var(--bg-focus);
-                        }
-            
-                        button:focus {
-                            background: var(--bg-hover);
-            
-                        }
+
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+
+            input:focus,
+            select:focus {
+                color: var(--color-secondary);
+                background: var(--bg-focus);
+            }
+
+            button:focus {
+                background: var(--bg-hover);
+
+            }
 
             .resistors {
                 input {
@@ -133,10 +240,9 @@ body {
             margin: 0.2rem;
             text-align: center;
             color: var(--color-secondary)
-            
         }
 
-        
+
 
 
 
@@ -174,6 +280,6 @@ section {
 
     h1 {
         color: var(--color-secondary);
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
 }
