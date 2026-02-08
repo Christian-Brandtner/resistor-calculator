@@ -52,7 +52,7 @@
                     <input class="input" type="number" min="0" name="voltage" id="voltage" placeholder="V">
 
 
-                    <button id="calculate-button" onclick="calculate()">Calculate</button>
+                    <button id="calculate-button" onclick="calculate('voltage')">Calculate</button>
                 </div>
                 <div class="equal">=</div>
                 <div class="outputs">
@@ -66,7 +66,8 @@
                 <div class="inputs">
                     <div class="resistors">
                         <input class="input" type="number" min="0" name="resistor-1" id="resistor-1" placeholder="R1">
-                        <input class="input" type="number" min="0" name="resistor-2" id="resistor-2" placeholder="R2">
+                        <input class="input" type="number" min="0" name="resistor-2" id="sensor-1" placeholder="R2 (min)">
+                        <input class="input" type="number" min="0" name="resistor-2" id="sensor-2" placeholder="R2 (max)">
                         <select class="input" name="units" id="units">
                             <option class="input" value="1">Ω</option>
                             <option class="input" value="1000">kΩ</option>

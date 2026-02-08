@@ -5,25 +5,25 @@
 }
 
 .light {
-  --color: #eee;
-  --color-secondary: #464b74;
-  --color-focus: #ffffff;
-  --bg: #eceaea;
-  --bg-secondary: #6f74c9;
-  --bg-focus: #eeefff;
-  --bg-hover: #5a5fc9;
-  --border: #595c8e;
+  --color: rgb(238, 238, 238);
+  --color-secondary: rgb(70, 75, 116);
+  --color-focus: rgb(255, 255, 255);
+  --bg: rgb(236, 234, 234);
+  --bg-secondary: rgb(111, 116, 201);
+  --bg-focus: rgb(238, 239, 255);
+  --bg-hover: rgb(90, 95, 201);
+  --border: rgb(89, 92, 142);
 }
 
 .dark {
-  --color: #eee;
-  --color-secondary: #818bd2;
-  --color-focus: #ffffff;
-  --bg: #1c1a1a;
-  --bg-secondary: #8186e5;
-  --bg-focus: #383a65;
-  --bg-hover: #5a5fc9;
-  --border: #595c8e;
+  --color: rgb(238, 238, 238);
+  --color-secondary: rgb(129, 139, 210);
+  --color-focus: rgb(255, 255, 255);
+  --bg: rgb(28, 26, 26);
+  --bg-secondary: rgb(129, 134, 229);
+  --bg-focus: rgb(56, 58, 101);
+  --bg-hover: rgb(90, 95, 201);
+  --border: rgb(89, 92, 142);
 }
 
 .calculator {
@@ -35,7 +35,6 @@ header .nav-list {
   justify-content: flex-end;
   align-items: center;
   background-color: var(--bg);
-  border-radius: 0.2rem;
   margin: 0%;
 }
 header .nav-item {
@@ -49,38 +48,45 @@ header .nav-item a {
   padding: 1rem;
   height: 1rem;
 }
-header .nav-item a::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  transform-origin: bottom right;
-  transition: transform 0.4s ease-out;
-}
-header .nav-item:hover a::after {
-  padding: 0px 0px 5px 0px;
-  color: var(--bg-hover);
-  border-bottom: solid;
-  border-width: 3px;
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
 header .nav-item a {
   text-decoration: none;
   color: var(--color-secondary);
   height: 100%;
 }
+header .nav-item .dropdown-list a {
+  color: var(--bg);
+}
 header .nav-item.logo {
   padding: 0;
 }
+header .dropdown {
+  position: relative;
+}
 header .dropdown .dropdown-list {
+  background: rgba(129, 134, 229, 0.5);
   display: none;
+  position: absolute;
+  bottom: -8.5rem;
+  left: 0;
+  list-style-type: none;
+  text-align: left;
+  border-radius: 5px;
+}
+header .dropdown .dropdown-list .dropdown-item {
+  background: var(--bg-secondary);
+  display: flex;
+  justify-content: left;
+  color: var(--bg);
+  border-radius: 5px;
+}
+header .dropdown .dropdown-list .dropdown-item a {
+  text-align: left;
+}
+header .dropdown .dropdown-item:hover {
+  background: var(--bg-hover);
 }
 header .dropdown:hover .dropdown-list {
-  display: block;
+  display: inline;
 }
 
 body {
@@ -89,7 +95,7 @@ body {
   color: var(--color);
   overflow-x: hidden;
 }
-body * {
+body section {
   border-radius: 3px;
 }
 
@@ -104,27 +110,27 @@ body * {
           user-select: none;
 }
 
-.voltage-divider-calculator {
+.calculator.current {
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
 }
-.voltage-divider-calculator h1 {
+.calculator.current h1 {
   align-self: center;
 }
-.voltage-divider-calculator .voltage-divider {
+.calculator.current .voltage-divider {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.voltage-divider-calculator .voltage-divider .equal {
+.calculator.current .voltage-divider .equal {
   font-size: 2rem;
   padding: 2rem;
   align-self: center;
   font-weight: lighter;
   color: var(--color-secondary);
 }
-.voltage-divider-calculator .voltage-divider .inputs {
+.calculator.current .voltage-divider .inputs {
   width: 50%;
   display: flex;
   flex-wrap: wrap;
@@ -132,55 +138,55 @@ body * {
   /* Chrome, Safari, Edge, Opera */
   /* Firefox */
 }
-.voltage-divider-calculator .voltage-divider .inputs .input {
+.calculator.current .voltage-divider .inputs .input {
   background: var(--bg);
 }
-.voltage-divider-calculator .voltage-divider .inputs input::-webkit-outer-spin-button,
-.voltage-divider-calculator .voltage-divider .inputs input::-webkit-inner-spin-button {
+.calculator.current .voltage-divider .inputs input::-webkit-outer-spin-button,
+.calculator.current .voltage-divider .inputs input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.voltage-divider-calculator .voltage-divider .inputs input[type=number] {
+.calculator.current .voltage-divider .inputs input[type=number] {
   -moz-appearance: textfield;
 }
-.voltage-divider-calculator .voltage-divider .inputs input:focus,
-.voltage-divider-calculator .voltage-divider .inputs select:focus {
+.calculator.current .voltage-divider .inputs input:focus,
+.calculator.current .voltage-divider .inputs select:focus {
   color: var(--color-secondary);
   background: var(--bg-focus);
 }
-.voltage-divider-calculator .voltage-divider .inputs button:focus {
+.calculator.current .voltage-divider .inputs button:focus {
   background: var(--bg-hover);
 }
-.voltage-divider-calculator .voltage-divider .inputs .resistors input {
+.calculator.current .voltage-divider .inputs .resistors input {
   max-width: 33%;
 }
-.voltage-divider-calculator .voltage-divider .inputs #resistor-1 {
+.calculator.current .voltage-divider .inputs #resistor-1 {
   order: 0;
 }
-.voltage-divider-calculator .voltage-divider .inputs #resistor-2 {
+.calculator.current .voltage-divider .inputs #resistor-2 {
   order: 1;
 }
-.voltage-divider-calculator .voltage-divider .inputs #units {
+.calculator.current .voltage-divider .inputs #units {
   order: 2;
 }
-.voltage-divider-calculator .voltage-divider .inputs #voltage {
+.calculator.current .voltage-divider .inputs #voltage {
   order: 3;
 }
-.voltage-divider-calculator .voltage-divider #calculate-button {
+.calculator.current .voltage-divider #calculate-button {
   order: 4;
 }
-.voltage-divider-calculator .voltage-divider .outputs {
+.calculator.current .voltage-divider .outputs {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.voltage-divider-calculator .voltage-divider .outputs output {
+.calculator.current .voltage-divider .outputs output {
   padding: 1rem;
   background: var(--bg-secondary);
 }
-.voltage-divider-calculator .voltage-divider input,
-.voltage-divider-calculator .voltage-divider select,
-.voltage-divider-calculator .voltage-divider button {
+.calculator.current .voltage-divider input,
+.calculator.current .voltage-divider select,
+.calculator.current .voltage-divider button {
   outline: none;
   border-color: var(--border);
   border: 3px solid var(--border);
@@ -189,7 +195,7 @@ body * {
   text-align: center;
   color: var(--color-secondary);
 }
-.voltage-divider-calculator .voltage-divider button {
+.calculator.current .voltage-divider button {
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -200,7 +206,7 @@ body * {
   transition: background 0.3s ease, border-color 0.3s ease;
   width: 7rem;
 }
-.voltage-divider-calculator .voltage-divider button:hover {
+.calculator.current .voltage-divider button:hover {
   background: var(--bg-hover);
   border-color: var(--bg-hover);
 }

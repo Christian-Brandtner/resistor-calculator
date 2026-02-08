@@ -3,11 +3,12 @@ var r2 = 0;
 var voltage = 0;
 var unit = 0;
 
-function calculate() {
+function calculate(inputType) {
     r1 = parseFloat(document.getElementById("resistor-1").value);
     r2 = parseFloat(document.getElementById("resistor-2").value);
     voltage = parseFloat(document.getElementById("voltage").value);
     unit = document.getElementById("units").value;
+
     const outputVoltage = ((r2 / (r1 + r2)) * voltage);
 
     if (!isNaN(outputVoltage) && (r1 != 0 && r2 != 0)) {
