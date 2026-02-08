@@ -7,7 +7,7 @@ function calculate(inputType) {
     r1 = parseFloat(document.getElementById("resistor-1").value);
     r2 = parseFloat(document.getElementById("resistor-2").value);
     voltage = parseFloat(document.getElementById("voltage").value);
-    unit = document.getElementById("units").value;
+    // unit = document.getElementById("units").value;
 
     const outputVoltage = ((r2 / (r1 + r2)) * voltage);
 
