@@ -2,6 +2,7 @@ var r1 = 0;
 var r2 = 0;
 var voltage = 0;
 var unit = 0;
+var container;
 
 function calculate(inputType) {
     r1 = parseFloat(document.getElementById("resistor-1").value);
@@ -28,7 +29,6 @@ function calculate(inputType) {
 }
 
 function toggleMode() {
-
     body = document.getElementsByTagName("body")[0];
     if (body.classList.contains("dark")) {
         body.classList.remove("dark");
@@ -41,9 +41,36 @@ function toggleMode() {
     else {
         body.classList.add("dark");
     }
-
+   
 }
 
+// class Resistor => {
+//     constructor(side, value) {
+//         this.side = side;
+//         this.value = value;
+//     }
+// }
+
+
+class Resistor {
+    constructor(side, value) {
+        this.side = side;
+        this.value = value;
+    }
+    instance() {
+        var div = document.createElement("div");
+        div.classList.add("resistor");
+        div.classList.add(this.side);
+        div.innerHTML = this.value + " Ω";
+        console.log(container);
+        container.appendChild(div);
+    }
+    
+}
+function addResistor(side, value) {
+    container = document.getElementsByTagName('section')[0];
+    new Resistor(side, value).instance();
+}
 // function changeCalculator() {
 //     // section = document.getElementsByTagName('section')[0];
 //     var div = document.getElementsByClassName("current")[0];
